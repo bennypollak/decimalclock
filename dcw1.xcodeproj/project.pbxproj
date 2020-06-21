@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B2CCD5DB249E83B900DDE47A /* dcw1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dcw1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2CCD5DB249E83B900DDE47A /* Decimal clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decimal clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B2CCD5E3249E83B900DDE47A /* dcw1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dcw1.xcdatamodel; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		B2CCD5DC249E83B900DDE47A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B2CCD5DB249E83B900DDE47A /* dcw1.app */,
+				B2CCD5DB249E83B900DDE47A /* Decimal clock.app */,
 				B2CCD5F4249E83BC00DDE47A /* dcw1Tests.xctest */,
 				B2CCD5FF249E83BC00DDE47A /* dcw1UITests.xctest */,
 			);
@@ -156,7 +156,7 @@
 			);
 			name = dcw1;
 			productName = dcw1;
-			productReference = B2CCD5DB249E83B900DDE47A /* dcw1.app */;
+			productReference = B2CCD5DB249E83B900DDE47A /* Decimal clock.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B2CCD5F3249E83BC00DDE47A /* dcw1Tests */ = {
@@ -448,7 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alben.t1.dcw1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Decimal clock";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -468,7 +468,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alben.t1.dcw1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Decimal clock";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
