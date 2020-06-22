@@ -27,22 +27,22 @@ struct ContentView: View {
     @State var time = "time"
     @State var decimalTime = "decimalTime"
     @State var decimalTimeAP = "decimalTimeAP"
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
             Text("Decimal clock").font(.largeTitle)
             Spacer()
             Group {
-            Text("Regular time").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            Text("\(regularTime)").font(Font.body.monospacedDigit())
+                Text("Regular time").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                Text("\(regularTime)").font(Font.body.monospacedDigit())
             }
             Spacer()
             VStack (alignment: .leading) {
-
-            Text("Decimal time").font(.title)
-            Text("\(decimalTime)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
-            Text("\(decimalTimeAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
+                
+                Text("Decimal time").font(.title)
+                Text("\(decimalTime)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
+                Text("\(decimalTimeAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
             }
             Spacer()
             VStack {
@@ -50,7 +50,6 @@ struct ContentView: View {
                 Text("\(time)").font(Font.body.monospacedDigit())
             }
             Spacer()
-
         }
         .onReceive(timer) { input in
             let formatter = DateFormatter()
