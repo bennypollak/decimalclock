@@ -73,7 +73,7 @@ struct ContentView: View {
             let decimalTimeStringAP = String(format:"%02d:%02d:%02d %@", dhour, dmins, dsecs, ampm)
             self.decimalTimeAP = "\(decimalTimeStringAP)"
             
-            let timeString = String(format:"%6.10f",timeFraction*100000)
+            let timeString = String(format:"%6.10f",millisecs/1000)
             self.time = "\(timeString)"
         }
         
