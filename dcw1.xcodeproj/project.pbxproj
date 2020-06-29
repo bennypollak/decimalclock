@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B285E29C24A8E99B00BCC6E8 /* dcw1.xcdatamodeld */; };
+		B285E2A824A8E99B00BCC6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */; };
+		B285E2A924A8E99B00BCC6E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B285E2A024A8E99B00BCC6E8 /* Preview Assets.xcassets */; };
+		B285E2AA24A8E99B00BCC6E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B285E2A124A8E99B00BCC6E8 /* LaunchScreen.storyboard */; };
+		B285E2AB24A8E99B00BCC6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285E2A324A8E99B00BCC6E8 /* AppDelegate.swift */; };
+		B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285E2A424A8E99B00BCC6E8 /* ContentView.swift */; };
+		B285E2B624A8EF9300BCC6E8 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */; };
 		B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */; };
 		B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */; };
 		B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5E2249E83B900DDE47A /* dcw1.xcdatamodeld */; };
@@ -36,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B285E29D24A8E99B00BCC6E8 /* dcw1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dcw1.xcdatamodel; sourceTree = "<group>"; };
+		B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B285E2A024A8E99B00BCC6E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B285E2A224A8E99B00BCC6E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B285E2A324A8E99B00BCC6E8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B285E2A424A8E99B00BCC6E8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B285E2A524A8E99B00BCC6E8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		B2CCD5DB249E83B900DDE47A /* Decimal clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decimal clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +93,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B285E29B24A8E99B00BCC6E8 /* dcw1 */ = {
+			isa = PBXGroup;
+			children = (
+				B285E29C24A8E99B00BCC6E8 /* dcw1.xcdatamodeld */,
+				B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */,
+				B285E29F24A8E99B00BCC6E8 /* Preview Content */,
+				B285E2A124A8E99B00BCC6E8 /* LaunchScreen.storyboard */,
+				B285E2A324A8E99B00BCC6E8 /* AppDelegate.swift */,
+				B285E2A424A8E99B00BCC6E8 /* ContentView.swift */,
+				B285E2A524A8E99B00BCC6E8 /* Info.plist */,
+				B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */,
+			);
+			name = dcw1;
+			sourceTree = "<group>";
+		};
+		B285E29F24A8E99B00BCC6E8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B285E2A024A8E99B00BCC6E8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		B2CCD5D2249E83B900DDE47A = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +139,7 @@
 		B2CCD5DD249E83B900DDE47A /* dcw1 */ = {
 			isa = PBXGroup;
 			children = (
+				B285E29B24A8E99B00BCC6E8 /* dcw1 */,
 				B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */,
 				B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */,
 				B2CCD5E5249E83B900DDE47A /* ContentView.swift */,
@@ -245,6 +284,9 @@
 			files = (
 				B2CCD5EE249E83BC00DDE47A /* LaunchScreen.storyboard in Resources */,
 				B2CCD5EB249E83BC00DDE47A /* Preview Assets.xcassets in Resources */,
+				B285E2A924A8E99B00BCC6E8 /* Preview Assets.xcassets in Resources */,
+				B285E2AA24A8E99B00BCC6E8 /* LaunchScreen.storyboard in Resources */,
+				B285E2A824A8E99B00BCC6E8 /* Assets.xcassets in Resources */,
 				B2CCD5E8249E83BC00DDE47A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,8 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B285E2AB24A8E99B00BCC6E8 /* AppDelegate.swift in Sources */,
 				B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */,
+				B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */,
 				B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */,
+				B285E2B624A8EF9300BCC6E8 /* Stopwatch.swift in Sources */,
+				B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */,
 				B2CCD5E6249E83B900DDE47A /* ContentView.swift in Sources */,
 				B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */,
 			);
@@ -309,6 +355,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B285E2A124A8E99B00BCC6E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B285E2A224A8E99B00BCC6E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		B2CCD5EC249E83BC00DDE47A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -600,6 +654,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		B285E29C24A8E99B00BCC6E8 /* dcw1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B285E29D24A8E99B00BCC6E8 /* dcw1.xcdatamodel */,
+			);
+			currentVersion = B285E29D24A8E99B00BCC6E8 /* dcw1.xcdatamodel */;
+			path = dcw1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		B2CCD5E2249E83B900DDE47A /* dcw1.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
