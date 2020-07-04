@@ -29,7 +29,6 @@ extension Date {
     }
     static func timeParts(decimal: Bool = true, date: Date = Date()) -> TimeParts {
         let millisecs = date.millisecondsToday
-        print(millisecs)
 
         let mode: Double = decimal ? 24*60*60*1000 : 100000*60*60
         let div: Double = decimal ? 100 : 60

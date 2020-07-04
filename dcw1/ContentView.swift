@@ -36,11 +36,9 @@ struct ContentView: View {
                 Text("\(regularTimeAP)").font(Font.body.monospacedDigit())
                 }
                 Clock(time: Date().millisecondsToday, decimal: false, lapTime: Date().millisecondsToday+2000)
-//                    .frame(width: 300, height: 300, alignment: .center)
                 Spacer()
             }
             
-//            Spacer()
             VStack {
                 Text("Seconds").font(.title)
                 Text("\(time)").font(Font.body.monospacedDigit())
