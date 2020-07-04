@@ -8,9 +8,9 @@
 
 import Foundation
 struct TimeParts {
-    var hours: Int
-    var mins: Int
-    var secs: Int
+    var hours: Double
+    var mins: Double
+    var secs: Double
     var fraction: Double
 }
 
@@ -40,7 +40,7 @@ extension Date {
         let dsecs = (dmins-floor(dmins))*div
         let dfract = (dsecs-floor(dsecs))
 
-        let timeParts = TimeParts(hours: Int(dhour), mins: Int(dmins), secs: Int(dsecs), fraction:dfract)
+        let timeParts = TimeParts(hours: dhour, mins: dmins, secs: dsecs, fraction:dfract)
         return timeParts
     }
 }

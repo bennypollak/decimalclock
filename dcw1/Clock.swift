@@ -26,35 +26,45 @@ extension CGRect {
 }
 struct Pointer: Shape {
     var circleRadius: CGFloat = 3
+    var fraction: CGFloat = 0.0
+    var extention: CGFloat = 10.0
     func path(in rect: CGRect) -> Path {
         Path { p in
-            p.move(to: CGPoint(x: rect.midX, y: rect.minY))
-            p.addLine(to: CGPoint(x: rect.midX, y: rect.midY - circleRadius))
+            p.move(to: CGPoint(x: rect.midX, y: rect.minY - (circleRadius-fraction)))
+            p.addLine(to: CGPoint(x: rect.midX, y: rect.midY))
             p.addEllipse(in: CGRect(center: rect.center, radius: circleRadius))
-            p.move(to: CGPoint(x: rect.midX, y: rect.midY + circleRadius))
+            p.move(to: CGPoint(x: rect.midX, y: rect.midY + circleRadius-extention))
             p.addLine(to: CGPoint(x: rect.midX, y: rect.midY + rect.height / 10))
+            
+//            p.move(to: CGPoint(x: rect.midX, y: rect.minY))
+//            p.addLine(to: CGPoint(x: rect.midX, y: rect.midY - circleRadius-z))
+//            p.addEllipse(in: CGRect(center: rect.center, radius: circleRadius))
+//            p.move(to: CGPoint(x: rect.midX, y: rect.midY + circleRadius-extention))
+//            p.addLine(to: CGPoint(x: rect.midX, y: rect.midY + rect.height / 10))
         }
     }
 }
 // End clock
 
 struct Clock: View {
-    var time: TimeInterval = 10
+    var time: TimeParts?
     var decimal: Bool = true
-    var lapTime: TimeInterval?
     func getOpacity(_ tick: Int) -> Double {
         if decimal {
-            return tick % 50 == 0 ? 1 : 0.4
+            return tick % 100 == 0 ? 1 : 0.4
         } else {
             return tick % 20 == 0 ? 1 : 0.4
         }
     }
     func getClockFrame(_ tick: Int) -> CGSize {
-        return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 15 : 7)
+        if decimal {
+            return CGSize(width: tick % 10 == 0 ? 2 : 1, height: tick % 10 == 0 ? 15 : 7)
+        } else {
+            return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 15 : 7)        }
     }
     func getDegrees(_ tick: Int) -> Double {
         if decimal {
-            return Double(tick)/50 * 360
+            return Double(tick)/100 * 360
         } else {
           return Double(tick)/60 * 360
         }
@@ -74,18 +84,20 @@ struct Clock: View {
     
     var body: some View {
         ZStack {
-            ForEach(0..<(decimal ? 50 : 60)) { tick in
+            ForEach(0..<(decimal ? 100 : 60)) { tick in
                 self.tick(at: tick)
             }
-//            if lapTime != nil {
-//                Pointer()
-//                    .stroke(Color.blue, lineWidth: 2)
-//                    .rotationEffect(Angle.degrees(Double(lapTime!) * 360/(decimal ? 50 : 60)))
-//            }
-//            Pointer()
-//                .stroke(Color.orange, lineWidth: 4)
-//                .rotationEffect(Angle.degrees(Double(time) * 360/(decimal ? 50 : 60)))
-//            Color.clear
+            Pointer(fraction:10)
+                .stroke(Color.primary, lineWidth: 1)
+                .rotationEffect(Angle.degrees(time!.secs * 360/(decimal ? 100 : 60)))
+            Color.clear
+            Pointer(fraction: 30)
+                .stroke(Color.primary, lineWidth: 3)
+                .rotationEffect(Angle.degrees(360*time!.mins/(decimal ? 100 : 60)))
+            Pointer(fraction:10)
+                .stroke(Color.primary, lineWidth: 4)
+                .rotationEffect(Angle.degrees(360*time!.hours/(decimal ? 100 : 12)))
+            Color.clear
         }
     }
 }
