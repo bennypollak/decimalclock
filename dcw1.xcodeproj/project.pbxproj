@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B90B24AFBE9900A41469 /* DecimalTime.swift */; };
+		B206B90E24B0D54C00A41469 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B90D24B0D54C00A41469 /* Clock.swift */; };
 		B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B285E29C24A8E99B00BCC6E8 /* dcw1.xcdatamodeld */; };
 		B285E2A824A8E99B00BCC6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */; };
 		B285E2A924A8E99B00BCC6E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B285E2A024A8E99B00BCC6E8 /* Preview Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B206B90B24AFBE9900A41469 /* DecimalTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTime.swift; sourceTree = "<group>"; };
+		B206B90D24B0D54C00A41469 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		B285E29D24A8E99B00BCC6E8 /* dcw1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dcw1.xcdatamodel; sourceTree = "<group>"; };
 		B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B285E2A024A8E99B00BCC6E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				B285E2A424A8E99B00BCC6E8 /* ContentView.swift */,
 				B285E2A524A8E99B00BCC6E8 /* Info.plist */,
 				B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */,
+				B206B90B24AFBE9900A41469 /* DecimalTime.swift */,
+				B206B90D24B0D54C00A41469 /* Clock.swift */,
 			);
 			name = dcw1;
 			sourceTree = "<group>";
@@ -316,9 +322,11 @@
 				B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */,
 				B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */,
 				B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */,
+				B206B90E24B0D54C00A41469 /* Clock.swift in Sources */,
 				B285E2B624A8EF9300BCC6E8 /* Stopwatch.swift in Sources */,
 				B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */,
 				B2CCD5E6249E83B900DDE47A /* ContentView.swift in Sources */,
+				B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */,
 				B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
