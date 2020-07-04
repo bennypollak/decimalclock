@@ -50,6 +50,7 @@ struct Clock: View {
     var time: TimeParts?
     var decimal: Bool = true
     func getOpacity(_ tick: Int) -> Double {
+        return 1
         if decimal {
             return tick % 100 == 0 ? 1 : 0.4
         } else {
