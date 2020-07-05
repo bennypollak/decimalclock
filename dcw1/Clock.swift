@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftUI
-
+// https://stackoverflow.com/questions/58411990/how-to-make-a-swipeable-view-with-swiftui
 // Clock https://talk.objc.io/episodes/S01E192-analog-clock
 extension CGRect {
     var center: CGPoint {
