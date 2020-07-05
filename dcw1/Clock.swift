@@ -84,7 +84,7 @@ struct Clock: View {
             }
             Pointer(fraction:10)
                 .stroke(Color.primary, lineWidth: 1)
-                .rotationEffect(Angle.degrees(time!.secs * 360/(decimal ? 100 : 60)))
+                .rotationEffect(Angle.degrees(floor(time!.secs) * 360/(decimal ? 100 : 60)))
             Color.clear
             Pointer(fraction: 10)
                 .stroke(Color.primary, lineWidth: 4)

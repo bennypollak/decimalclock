@@ -19,12 +19,13 @@ struct ContentView: View {
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
     var body: some View {
+        
         VStack {
             VStack {
                 Text("Decimal time").font(.title)
                 HStack {
-                Text("\(decimalTime)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
-                Text("\(decimalTimeAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
+                    Text("\(decimalTime)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
+                    Text("\(decimalTimeAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
                 }
                 Clock(time: Date.timeParts(decimal: true), decimal: true)
                 Spacer()
@@ -32,8 +33,8 @@ struct ContentView: View {
             VStack (alignment: .center) {
                 Text("Legacy time").font(.title  )
                 HStack {
-                Text("\(regularTime)").font(Font.body.monospacedDigit())
-                Text("\(regularTimeAP)").font(Font.body.monospacedDigit())
+                    Text("\(regularTime)").font(Font.body.monospacedDigit())
+                    Text("\(regularTimeAP)").font(Font.body.monospacedDigit())
                 }
                 Clock(time: Date.timeParts(decimal: false), decimal: false)
                 Spacer()
@@ -52,7 +53,7 @@ struct ContentView: View {
             self.regularTime = formatter.string(from: Date())
             formatter.dateFormat = "hh:mm:ss a"
             self.regularTimeAP = formatter.string(from: Date())
-
+            
             var dtime = Date.timeParts(decimal: true)
             let decimalTimeString = String(format:"%02d:%02d:%02d", Int(dtime.hours), Int(dtime.mins), Int(dtime.secs))
             self.decimalTime = "\(decimalTimeString)"
