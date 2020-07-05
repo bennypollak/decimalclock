@@ -25,6 +25,7 @@
 		B2CCD5EE249E83BC00DDE47A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CCD5EC249E83BC00DDE47A /* LaunchScreen.storyboard */; };
 		B2CCD5F9249E83BC00DDE47A /* dcw1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5F8249E83BC00DDE47A /* dcw1Tests.swift */; };
 		B2CCD604249E83BC00DDE47A /* dcw1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD603249E83BC00DDE47A /* dcw1UITests.swift */; };
+		B2E7BCD424B24317000AB46D /* BinaryClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BCD324B24317000AB46D /* BinaryClock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B2CCD5FF249E83BC00DDE47A /* dcw1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dcw1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CCD603249E83BC00DDE47A /* dcw1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dcw1UITests.swift; sourceTree = "<group>"; };
 		B2CCD605249E83BC00DDE47A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2E7BCD324B24317000AB46D /* BinaryClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				B285E2A424A8E99B00BCC6E8 /* ContentView.swift */,
 				B285E2A524A8E99B00BCC6E8 /* Info.plist */,
 				B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */,
+				B2E7BCD324B24317000AB46D /* BinaryClock.swift */,
 				B206B90B24AFBE9900A41469 /* DecimalTime.swift */,
 				B206B90D24B0D54C00A41469 /* Clock.swift */,
 			);
@@ -327,6 +330,7 @@
 				B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */,
 				B2CCD5E6249E83B900DDE47A /* ContentView.swift in Sources */,
 				B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */,
+				B2E7BCD424B24317000AB46D /* BinaryClock.swift in Sources */,
 				B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

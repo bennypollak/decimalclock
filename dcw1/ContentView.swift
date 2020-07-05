@@ -28,6 +28,8 @@ struct ContentView: View {
                     Text("\(decimalTimeAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
                 }
                 Clock(time: Date.timeParts(decimal: true), decimal: true)
+                BinaryClock(time: Date.timeParts(decimal: true), decimal: true)
+                    .frame(width:100, height:100)
                 Spacer()
             }
             VStack (alignment: .center) {
@@ -37,6 +39,8 @@ struct ContentView: View {
                     Text("\(regularTimeAP)").font(Font.body.monospacedDigit())
                 }
                 Clock(time: Date.timeParts(decimal: false), decimal: false)
+                BinaryClock(time: Date.timeParts(decimal: false), decimal: true)
+                .frame(width:100, height:100)
                 Spacer()
             }
             

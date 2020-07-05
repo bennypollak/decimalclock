@@ -12,6 +12,8 @@ struct TimeParts {
     var mins: Double
     var secs: Double
     var fraction: Double
+    var string: String
+    var stringAP: String
 }
 
 extension Date {
@@ -40,7 +42,16 @@ extension Date {
         let dsecs = (dmins-floor(dmins))*div
         let dfract = (dsecs-floor(dsecs))
 
-        let timeParts = TimeParts(hours: dhour, mins: dmins, secs: dsecs, fraction:dfract)
+        let timeString = String(format:"%02d:%02d:%02d", Int(dhour), Int(dmins), Int(dsecs))
+        var ampm = "AM"
+        var hours = dhour
+        if hours >= (decimal ? 50 : 12) {
+            ampm = "PM"
+            hours -= (decimal ? 50 : 12)
+        }
+        let timeStringAP = String(format:"%02d:%02d:%02d %@", Int(dhour), Int(dmins), Int(dsecs), ampm)
+
+        let timeParts = TimeParts(hours: dhour, mins: dmins, secs: dsecs, fraction:dfract, string: timeString, stringAP: timeStringAP)
         return timeParts
     }
 }
