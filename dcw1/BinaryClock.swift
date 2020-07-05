@@ -57,7 +57,6 @@ struct BinaryClock: View {
         let lo = int - ho*10
         let strs = [pad(string: String(ho, radix: 2), toSize: 4)
             , pad(string: String(lo, radix: 2), toSize: 4)]
-        print(strs)
         for i in 0..<2 {
             var s = 3
             for j in 0..<4 {
