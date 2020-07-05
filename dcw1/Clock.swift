@@ -35,12 +35,6 @@ struct Pointer: Shape {
             p.addEllipse(in: CGRect(center: rect.center, radius: circleRadius))
             p.move(to: CGPoint(x: rect.midX, y: rect.midY + circleRadius-extention))
             p.addLine(to: CGPoint(x: rect.midX, y: rect.midY + rect.height / 10))
-            
-//            p.move(to: CGPoint(x: rect.midX, y: rect.minY))
-//            p.addLine(to: CGPoint(x: rect.midX, y: rect.midY - circleRadius-z))
-//            p.addEllipse(in: CGRect(center: rect.center, radius: circleRadius))
-//            p.move(to: CGPoint(x: rect.midX, y: rect.midY + circleRadius-extention))
-//            p.addLine(to: CGPoint(x: rect.midX, y: rect.midY + rect.height / 10))
         }
     }
 }
@@ -67,7 +61,7 @@ struct Clock: View {
         if decimal {
             return Double(tick)/100 * 360
         } else {
-          return Double(tick)/60 * 360
+            return Double(tick)/60 * 360
         }
     }
     func tick(at tick: Int) -> some View {
@@ -76,7 +70,7 @@ struct Clock: View {
                 .fill(Color.primary)
                 .opacity(getOpacity(tick))
                 .frame(width: getClockFrame(tick).width, height: getClockFrame(tick).height)
-                
+            
             Spacer()
         }
         .rotationEffect(Angle.degrees(getDegrees(tick)))
@@ -92,13 +86,26 @@ struct Clock: View {
                 .stroke(Color.primary, lineWidth: 1)
                 .rotationEffect(Angle.degrees(time!.secs * 360/(decimal ? 100 : 60)))
             Color.clear
-            Pointer(fraction: 30)
-                .stroke(Color.primary, lineWidth: 3)
+            Pointer(fraction: 10)
+                .stroke(Color.primary, lineWidth: 4)
                 .rotationEffect(Angle.degrees(360*time!.mins/(decimal ? 100 : 60)))
-            Pointer(fraction:10)
+            Pointer(fraction:50)
                 .stroke(Color.primary, lineWidth: 4)
                 .rotationEffect(Angle.degrees(360*time!.hours/(decimal ? 100 : 12)))
             Color.clear
         }
+        
+    }
+}
+
+struct ContentView_PreviewsClock: PreviewProvider {
+    static var previews: some View {
+        GeometryReader{g in
+            VStack {
+                Clock(time: Date.timeParts(decimal: true), decimal: true)
+                    .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
+            }
+        }
+        
     }
 }
