@@ -9,28 +9,26 @@
 import Foundation
 import SwiftUI
 
-struct BinaryNumber: View {
-    var parts: [[Int]]
-    var decimal: Bool = true
+struct NibbleView: View {
+    var parts: [Int]
     let balls = ["blackball", "redball"]
     var body: some View {
-        VStack {
-            HStack {
-                VStack {
-                    Image(balls[parts[0][3]]).resizable().aspectRatio(contentMode: .fit)
-                    Image(balls[parts[0][2]]).resizable().aspectRatio(contentMode: .fit)
-                    Image(balls[parts[0][1]]).resizable().aspectRatio(contentMode: .fit)
-                    Image(balls[parts[0][0]]).resizable().aspectRatio(contentMode: .fit)
-                }
-                VStack {
-                    Image(balls[parts[1][3]]).resizable().aspectRatio(contentMode: .fit)
-                    Image(balls[parts[1][2]]).resizable().aspectRatio(contentMode: .fit)
-                    Image(balls[parts[1][1]]).resizable().aspectRatio(contentMode: .fit)
-                    Image(balls[parts[1][0]]).resizable().aspectRatio(contentMode: .fit)
-                }
-            }
+        VStack(spacing:3) {
+            Image(balls[parts[3]]).resizable().aspectRatio(contentMode: .fit)
+            Image(balls[parts[2]]).resizable().aspectRatio(contentMode: .fit)
+            Image(balls[parts[1]]).resizable().aspectRatio(contentMode: .fit)
+            Image(balls[parts[0]]).resizable().aspectRatio(contentMode: .fit)
         }
-        
+    }
+}
+
+struct ByteView: View {
+    var parts: [[Int]]
+    var body: some View {
+        HStack(spacing:3) {
+            NibbleView(parts: parts[0])
+            NibbleView(parts: parts[1])
+        }
     }
 }
 extension String {
@@ -43,13 +41,13 @@ struct BinaryClock: View {
     var time: TimeParts?
     var decimal: Bool = true
     func pad(string : String, toSize: Int) -> String {
-      var padded = string
-      for _ in 0..<(toSize - string.count) {
-        padded = "0" + padded
-      }
+        var padded = string
+        for _ in 0..<(toSize - string.count) {
+            padded = "0" + padded
+        }
         return padded
     }
-
+    
     func binParts(number: Double?) -> [[Int]] {
         let int = Int(number!)
         var result = [[1,0,1,0],[1,1,0,0]]
@@ -67,10 +65,10 @@ struct BinaryClock: View {
         return result
     }
     var body: some View {
-        HStack {
-            BinaryNumber(parts:binParts(number: time!.hours))
-            BinaryNumber(parts:binParts(number: time!.mins))
-            BinaryNumber(parts:binParts(number: time!.secs))
+        HStack(spacing:3) {
+            ByteView(parts:binParts(number: time!.hours))
+            ByteView(parts:binParts(number: time!.mins))
+            ByteView(parts:binParts(number: time!.secs))
         }
         
     }
@@ -84,10 +82,10 @@ struct ContentView_PreviewsBinaryClock: PreviewProvider {
                 BinaryClock(time: Date.timeParts(decimal: true), decimal: true).frame(width:150, height:150)
                 Text("\( Date.timeParts(decimal: true).string)")
                 BinaryClock(time: Date.timeParts(decimal: false), decimal: false).frame(width:150, height:150)
-                    Text("\( Date.timeParts(decimal: false).string)")
+                Text("\( Date.timeParts(decimal: false).string)")
             }
             .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
-
+            
         }
         
     }

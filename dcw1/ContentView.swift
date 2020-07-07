@@ -20,31 +20,35 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-            VStack {
+        VStack(spacing:3) {
+            VStack(spacing:4) {
                 Text("Decimal time").font(.title)
                 HStack {
                     Text("\(decimalTime)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
                     Text("\(decimalTimeAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
                 }
-                Clock(time: Date.timeParts(decimal: true), decimal: true)
-                BinaryClock(time: Date.timeParts(decimal: true), decimal: true)
-                    .frame(width:100, height:100)
-                Spacer()
+                VStack(spacing:2) {
+                    Clock(time: Date.timeParts(decimal: true), decimal: true)
+                    BinaryClock(time: Date.timeParts(decimal: true), decimal: true)
+                        .frame(width:100, height:100)
+                }
             }
-            VStack (alignment: .center) {
+            Divider()
+            VStack(spacing:4) {
                 Text("Legacy time").font(.title  )
                 HStack {
                     Text("\(regularTime)").font(Font.body.monospacedDigit())
                     Text("\(regularTimeAP)").font(Font.body.monospacedDigit())
                 }
-                Clock(time: Date.timeParts(decimal: false), decimal: false)
-                BinaryClock(time: Date.timeParts(decimal: false), decimal: true)
-                .frame(width:100, height:100)
-                Spacer()
+                VStack(spacing:2) {
+                    Clock(time: Date.timeParts(decimal: false), decimal: false)
+                    BinaryClock(time: Date.timeParts(decimal: false), decimal: true)
+                        .frame(width:100, height:100)
+                }
             }
             
-            VStack {
+            Divider()
+            VStack(spacing:4) {
                 Text("Seconds").font(.title)
                 Text("\(time)").font(Font.body.monospacedDigit())
             }
