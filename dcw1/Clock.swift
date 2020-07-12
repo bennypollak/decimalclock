@@ -45,17 +45,21 @@ struct Clock: View {
     var decimal: Bool = true
     func getOpacity(_ tick: Int) -> Double {
         return 1
-        if decimal {
-            return tick % 100 == 0 ? 1 : 0.4
-        } else {
-            return tick % 20 == 0 ? 1 : 0.4
-        }
+//        if decimal {
+//            return tick % 100 == 0 ? 1 : 0.4
+//        } else {
+//            return tick % 20 == 0 ? 1 : 0.4
+//        }
     }
     func getClockFrame(_ tick: Int) -> CGSize {
         if decimal {
-            return CGSize(width: tick % 10 == 0 ? 2 : 1, height: tick % 10 == 0 ? 15 : 7)
+            return CGSize(width: tick % 10 == 0 ? 2 : 1,
+                          height:
+                tick % 5 == 0 ? (tick % 10 == 0 ? 20 : 13)
+                              : 7
+                        )
         } else {
-            return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 15 : 7)        }
+            return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 20 : 7)        }
     }
     func getDegrees(_ tick: Int) -> Double {
         if decimal {
