@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var currentDate = Date()
+//    @State var currentDate = Date()
     @State var regularTime = "regularTime"
     @State var regularTimeAP = "regularTimeAP"
     @State var time = "time"

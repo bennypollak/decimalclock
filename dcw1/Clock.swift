@@ -106,10 +106,10 @@ struct ContentView_PreviewsClock: PreviewProvider {
     static var previews: some View {
         GeometryReader{g in
             VStack {
-                Clock(time: Date.parts(decimal: true, hour: 80, mins: 20, secs: 50, fraction:0), decimal: true)
-                    .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
-//                Clock(time: Date.timeParts(decimal: true), decimal: true)
+//                Clock(time: Date.parts(decimal: true, hour: 80, mins: 20, secs: 50, fraction:0), decimal: true)
 //                    .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
+                Clock(time: Date.timeParts(decimal: true), decimal: true)
+                    .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
             }
         }
         
