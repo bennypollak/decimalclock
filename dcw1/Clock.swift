@@ -82,20 +82,21 @@ struct Clock: View {
     
     var body: some View {
         ZStack {
-            ForEach(0..<(timeParts.decimal ? 100 : 60)) { tick in
+            // https://stackoverflow.com/questions/58504575/view-is-not-rerendered-in-nested-foreach-loop
+            ForEach(0..<(timeParts.decimal ? 100 : 60), id: \.self) { tick in
                 self.tick(at: tick)
             }
             Pointer(fraction:10)
                 .stroke(Color.primary, lineWidth: 1)
                 .rotationEffect(Angle.degrees(floor(timeParts.secs) * 360/(timeParts.decimal ? 100 : 60)))
-            Color.clear
+//            Color.clear
             Pointer(fraction: 10)
                 .stroke(Color.primary, lineWidth: 4)
                 .rotationEffect(Angle.degrees(360*timeParts.mins/(timeParts.decimal ? 100 : 60)))
             Pointer(fraction:50)
                 .stroke(Color.primary, lineWidth: 4)
                 .rotationEffect(Angle.degrees(360*timeParts.hours/(timeParts.decimal ? 100 : 12)))
-            Color.clear
+//            Color.clear
         }
         
     }

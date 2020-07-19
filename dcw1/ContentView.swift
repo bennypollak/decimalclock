@@ -28,8 +28,23 @@ struct AClocks : View {
 
 struct ContentView: View {
     @State var time = Date()
+    @State private var clockOrder = true
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
+    var gesture: some Gesture {
+        DragGesture()
+            .onChanged { drag in
+//                if self.didJustSwipe {
+//                    self.didJustSwipe = false
+//                }
+        }
+        .onEnded { drag in
+            let w = drag.translation.width
+            if abs(w) > 100 {
+                self.clockOrder = !self.clockOrder
+            }
+        }
+    }
     var body: some View {
         
         VStack(spacing:3) {
@@ -48,13 +63,15 @@ struct ContentView: View {
             }
             Spacer()
             
-        }
+        }.gesture(self.gesture)
         .onReceive(timer) { input in
 //            let formatter = DateFormatter()
 //            formatter.dateFormat = "HH:mm:ss"
 //            self.regularTime = formatter.string(from: Date())
             self.time = Date()
         }
+        .colorScheme(self.clockOrder ? .dark : .light)
+        .background(self.clockOrder ? Color.black : Color.white)
     }
 }
 
