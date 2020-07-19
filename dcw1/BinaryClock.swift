@@ -38,8 +38,7 @@ extension String {
 }
 
 struct BinaryClock: View {
-    var time: TimeParts?
-    var decimal: Bool = true
+    var timeParts: TimeParts
     func pad(string : String, toSize: Int) -> String {
         var padded = string
         for _ in 0..<(toSize - string.count) {
@@ -66,11 +65,10 @@ struct BinaryClock: View {
     }
     var body: some View {
         HStack(spacing:3) {
-            ByteView(parts:binParts(number: time!.hours))
-            ByteView(parts:binParts(number: time!.mins))
-            ByteView(parts:binParts(number: time!.secs))
-        }
-        
+            ByteView(parts:binParts(number: timeParts.hours))
+            ByteView(parts:binParts(number: timeParts.mins))
+            ByteView(parts:binParts(number: timeParts.secs))
+        }        
     }
 }
 
@@ -79,9 +77,9 @@ struct ContentView_PreviewsBinaryClock: PreviewProvider {
     static var previews: some View {
         GeometryReader{g in
             VStack {
-                BinaryClock(time: Date.timeParts(decimal: true), decimal: true).frame(width:150, height:150)
+                BinaryClock(timeParts: Date.timeParts(decimal: true)).frame(width:150, height:150)
                 Text("\( Date.timeParts(decimal: true).string)")
-                BinaryClock(time: Date.timeParts(decimal: false), decimal: false).frame(width:150, height:150)
+                BinaryClock(timeParts: Date.timeParts(decimal: false)).frame(width:150, height:150)
                 Text("\( Date.timeParts(decimal: false).string)")
             }
             .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)

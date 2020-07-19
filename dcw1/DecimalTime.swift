@@ -8,6 +8,7 @@
 
 import Foundation
 struct TimeParts {
+    var decimal: Bool
     var hours: Double
     var mins: Double
     var secs: Double
@@ -38,7 +39,7 @@ extension Date {
             hours -= (decimal ? 50 : 12)
         }
         let timeStringAP = String(format:"%02d:%02d:%02d %@", Int(hours), Int(mins), Int(secs), ampm)
-        let timeParts = TimeParts(hours: hour, mins: mins, secs: secs, fraction:fraction, string: timeString, stringAP: timeStringAP)
+        let timeParts = TimeParts(decimal: decimal, hours: hour, mins: mins, secs: secs, fraction:fraction, string: timeString, stringAP: timeStringAP)
         return timeParts
     }
     static func timeParts(decimal: Bool = true, date: Date = Date()) -> TimeParts {
@@ -54,16 +55,5 @@ extension Date {
         let dsecs = (dmins-floor(dmins))*div
         let dfract = (dsecs-floor(dsecs))
         return parts(decimal: decimal, hour: dhour, mins: dmins, secs: dsecs, fraction:dfract)
-//        let timeString = String(format:"%02d:%02d:%02d", Int(dhour), Int(dmins), Int(dsecs))
-//        var ampm = "AM"
-//        var hours = dhour
-//        if hours >= (decimal ? 50 : 12) {
-//            ampm = "PM"
-//            hours -= (decimal ? 50 : 12)
-//        }
-//        let timeStringAP = String(format:"%02d:%02d:%02d %@", Int(dhour), Int(dmins), Int(dsecs), ampm)
-//
-//        let timeParts = TimeParts(hours: dhour, mins: dmins, secs: dsecs, fraction:dfract, string: timeString, stringAP: timeStringAP)
-//        return timeParts
     }
 }

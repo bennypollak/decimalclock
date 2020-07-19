@@ -7,16 +7,24 @@
 //
 
 import SwiftUI
+struct AWClocks : View {
+    var timeParts: TimeParts
+    var body: some View {
+        VStack(spacing:0) {
+            Text(Date.timeParts(decimal: timeParts.decimal).string).font(Font.body.monospacedDigit())
+            BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal))
+        }
+    }
+}
 
 struct ContentView: View {
     let timer = Timer.publish(every: 0.007, on: .main, in: .common).autoconnect()
     @State var time = "time"
     var body: some View {
         VStack(spacing: 1) {
-            Text("\(time)").font(Font.body.monospacedDigit())
-            BinaryClock(time: Date.timeParts(decimal: true), decimal: true)
-            Text(Date.timeParts(decimal: false).string).font(Font.body.monospacedDigit())
-            BinaryClock(time: Date.timeParts(decimal: false), decimal: false)
+            Text("\(time)").font(Font.body.monospacedDigit()).frame(width: 0, height: 0, alignment: .top)
+            AWClocks(timeParts: Date.timeParts(decimal: true))
+            AWClocks(timeParts: Date.timeParts(decimal: false))
         }.onReceive(timer) { input in
             self.time = Date.timeParts(decimal: true).string
         }

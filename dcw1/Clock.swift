@@ -41,8 +41,7 @@ struct Pointer: Shape {
 // End clock
 
 struct Clock: View {
-    var time: TimeParts?
-    var decimal: Bool = true
+    var timeParts: TimeParts
     func getOpacity(_ tick: Int) -> Double {
         return 1
 //        if decimal {
@@ -52,7 +51,7 @@ struct Clock: View {
 //        }
     }
     func getClockFrame(_ tick: Int) -> CGSize {
-        if decimal {
+        if timeParts.decimal {
             return CGSize(width: tick % 10 == 0 ? 2 : 1,
                           height:
                 tick % 5 == 0 ? (tick % 10 == 0 ? 20 : 13)
@@ -62,7 +61,7 @@ struct Clock: View {
             return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 20 : 7)        }
     }
     func getDegrees(_ tick: Int) -> Double {
-        if decimal {
+        if timeParts.decimal {
             return Double(tick)/100 * 360
         } else {
             return Double(tick)/60 * 360
@@ -83,19 +82,19 @@ struct Clock: View {
     
     var body: some View {
         ZStack {
-            ForEach(0..<(decimal ? 100 : 60)) { tick in
+            ForEach(0..<(timeParts.decimal ? 100 : 60)) { tick in
                 self.tick(at: tick)
             }
             Pointer(fraction:10)
                 .stroke(Color.primary, lineWidth: 1)
-                .rotationEffect(Angle.degrees(floor(time!.secs) * 360/(decimal ? 100 : 60)))
+                .rotationEffect(Angle.degrees(floor(timeParts.secs) * 360/(timeParts.decimal ? 100 : 60)))
             Color.clear
             Pointer(fraction: 10)
                 .stroke(Color.primary, lineWidth: 4)
-                .rotationEffect(Angle.degrees(360*time!.mins/(decimal ? 100 : 60)))
+                .rotationEffect(Angle.degrees(360*timeParts.mins/(timeParts.decimal ? 100 : 60)))
             Pointer(fraction:50)
                 .stroke(Color.primary, lineWidth: 4)
-                .rotationEffect(Angle.degrees(360*time!.hours/(decimal ? 100 : 12)))
+                .rotationEffect(Angle.degrees(360*timeParts.hours/(timeParts.decimal ? 100 : 12)))
             Color.clear
         }
         
@@ -106,9 +105,9 @@ struct ContentView_PreviewsClock: PreviewProvider {
     static var previews: some View {
         GeometryReader{g in
             VStack {
-//                Clock(time: Date.parts(decimal: true, hour: 80, mins: 20, secs: 50, fraction:0), decimal: true)
+//                Clock(time: Date.parts(decimal: true, hour: 80, mins: 20, secs: 50, fraction:0)
 //                    .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
-                Clock(time: Date.timeParts(decimal: true), decimal: true)
+                Clock(timeParts: Date.timeParts(decimal: false))
                     .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
             }
         }
