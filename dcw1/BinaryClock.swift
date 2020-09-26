@@ -59,10 +59,10 @@ struct BinaryClock: View {
 
     var body: some View {
         HStack(spacing:3) {
-            ByteView(parts:binParts(number: timeParts.hours))
-            ByteView(parts:binParts(number: timeParts.mins))
-            ByteView(parts:binParts(number: timeParts.secs))
-        }        
+            ForEach([timeParts.hours, timeParts.mins, timeParts.secs], id: \.self) { timePart in
+                ByteView(parts:binParts(number: timePart))
+            }
+        }
     }
 }
 
