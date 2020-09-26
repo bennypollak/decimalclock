@@ -14,10 +14,9 @@ struct NibbleView: View {
     let balls = ["blackball", "redball"]
     var body: some View {
         VStack(spacing:3) {
-            Image(balls[parts[3]]).resizable().aspectRatio(contentMode: .fit)
-            Image(balls[parts[2]]).resizable().aspectRatio(contentMode: .fit)
-            Image(balls[parts[1]]).resizable().aspectRatio(contentMode: .fit)
-            Image(balls[parts[0]]).resizable().aspectRatio(contentMode: .fit)
+            ForEach(parts.reversed(), id: \.self) {  ball in
+                Image(self.balls[ball]).resizable().aspectRatio(contentMode: .fit)
+            }
         }
     }
 }
@@ -40,29 +39,24 @@ extension String {
 struct BinaryClock: View {
     var timeParts: TimeParts
     func pad(string : String, toSize: Int) -> String {
-        var padded = string
-        for _ in 0..<(toSize - string.count) {
-            padded = "0" + padded
-        }
-        return padded
-    }
-    
+         return String(repeating: "0", count: toSize - string.count) + string
+     }
+
     func binParts(number: Double?) -> [[Int]] {
-        let int = Int(number!)
-        var result = [[1,0,1,0],[1,1,0,0]]
-        let ho = int / 10
-        let lo = int - ho*10
-        let strs = [pad(string: String(ho, radix: 2), toSize: 4)
-            , pad(string: String(lo, radix: 2), toSize: 4)]
-        for i in 0..<2 {
-            var s = 3
-            for j in 0..<4 {
-                result[i][j] = strs[i][s] == "1" ? 1 : 0
-                s -= 1
-            }
+        let int: Int = Int(number!)
+
+        let orders: [Int] = [
+            int / 10,   //high order
+            int % 10    //low order
+        ]
+
+        return orders.map {(order: Int) in
+            pad(string: String(order, radix: 2), toSize:
+4).reversed().map {Int(String($0))!}
         }
-        return result
+
     }
+
     var body: some View {
         HStack(spacing:3) {
             ByteView(parts:binParts(number: timeParts.hours))
