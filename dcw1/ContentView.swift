@@ -14,8 +14,8 @@ struct AClocks : View {
         VStack(spacing:4) {
             Text("\(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Legacy") time").font(.title)
             HStack {
-                Text("\(timeParts.string)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
-                Text("\(timeParts.stringAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
+                Text("\(timeParts.string)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
+                Text("\(timeParts.stringAP)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
             }
             VStack(spacing:2) {
                 Clock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex))

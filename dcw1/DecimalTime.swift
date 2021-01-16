@@ -48,17 +48,17 @@ extension Date {
         var mode: Double = 0.0
         if hex  {
             // ff:ff:ff
-            mode = 256*60*60*1000
+            mode = 24*60*60*1000/256
         } else if decimal {
-            mode = 24*60*60*1000
+            mode = 24*60*60*1000/100
         } else {
-            mode = 100*60*60*1000
+            mode = 100*60*60*1000/100
         }
         let div: Double = hex ? 256 : decimal ? 100 : 60
         let timeFraction = millisecs/mode
         
         // Calculate decimal time
-        let dhour = timeFraction*100
+        let dhour = timeFraction
         let dmins = (dhour-floor(dhour))*div
         let dsecs = (dmins-floor(dmins))*div
         let dfract = (dsecs-floor(dsecs))
