@@ -51,17 +51,22 @@ struct Clock: View {
 //        }
     }
     func getClockFrame(_ tick: Int) -> CGSize {
-        if timeParts.decimal {
+        if timeParts.hex {
+            return CGSize(width: tick % 16 == 0 ? 1 : 1,
+                          height: tick % 8 == 0 ? (tick % 16 == 0 ? 20 : 13) : 7
+                        )
+        } else if timeParts.decimal {
             return CGSize(width: tick % 10 == 0 ? 2 : 1,
-                          height:
-                tick % 5 == 0 ? (tick % 10 == 0 ? 20 : 13)
-                              : 7
+                          height: tick % 5 == 0 ? (tick % 10 == 0 ? 20 : 13) : 7
                         )
         } else {
-            return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 20 : 7)        }
+            return CGSize(width: tick % 5 == 0 ? 2 : 1, height: tick % 5 == 0 ? 20 : 7)
+        }
     }
     func getDegrees(_ tick: Int) -> Double {
-        if timeParts.decimal {
+        if timeParts.hex {
+            return Double(tick)/256 * 360
+        } else if timeParts.decimal {
             return Double(tick)/100 * 360
         } else {
             return Double(tick)/60 * 360
@@ -83,19 +88,19 @@ struct Clock: View {
     var body: some View {
         ZStack {
             // https://stackoverflow.com/questions/58504575/view-is-not-rerendered-in-nested-foreach-loop
-            ForEach(0..<(timeParts.decimal ? 100 : 60), id: \.self) { tick in
+            ForEach(0..<(timeParts.hex ? 256 : timeParts.decimal ? 100 : 60), id: \.self) { tick in
                 self.tick(at: tick)
             }
             Pointer(fraction:10)
                 .stroke(Color.primary, lineWidth: 1)
-                .rotationEffect(Angle.degrees(floor(timeParts.secs) * 360/(timeParts.decimal ? 100 : 60)))
+                .rotationEffect(Angle.degrees(floor(timeParts.secs) * 360/(timeParts.hex ? 256 : timeParts.decimal ? 100 : 60)))
 //            Color.clear
             Pointer(fraction: 10)
                 .stroke(Color.primary, lineWidth: 4)
-                .rotationEffect(Angle.degrees(360*timeParts.mins/(timeParts.decimal ? 100 : 60)))
+                .rotationEffect(Angle.degrees(360*timeParts.mins/(timeParts.hex ? 256 : timeParts.decimal ? 100 : 60)))
             Pointer(fraction:50)
                 .stroke(Color.primary, lineWidth: 4)
-                .rotationEffect(Angle.degrees(360*timeParts.hours/(timeParts.decimal ? 100 : 12)))
+                .rotationEffect(Angle.degrees(360*timeParts.hours/(timeParts.hex ? 256 : timeParts.decimal ? 100 : 12)))
 //            Color.clear
         }
         
@@ -108,7 +113,7 @@ struct ContentView_PreviewsClock: PreviewProvider {
             VStack {
 //                Clock(time: Date.parts(decimal: true, hour: 80, mins: 20, secs: 50, fraction:0)
 //                    .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
-                Clock(timeParts: Date.timeParts(decimal: false))
+                Clock(timeParts: Date.timeParts(decimal: false, hex: true))
                     .frame(width: min(g.size.width,g.size.width), height: min(g.size.width,g.size.width), alignment: Alignment.center)
             }
         }

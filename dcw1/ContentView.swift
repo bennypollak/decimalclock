@@ -12,14 +12,14 @@ struct AClocks : View {
     var timeParts: TimeParts
     var body: some View {
         VStack(spacing:4) {
-            Text("\(timeParts.decimal ? "Decimal" : "Legacy") time").font(.title)
+            Text("\(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Legacy") time").font(.title)
             HStack {
                 Text("\(timeParts.string)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
                 Text("\(timeParts.stringAP)").font(Font.body.monospacedDigit()).multilineTextAlignment(.leading)
             }
             VStack(spacing:2) {
-                Clock(timeParts: Date.timeParts(decimal: timeParts.decimal))
-                BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal))
+                Clock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex))
+                BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex))
                     .frame(width:100, height:100)
             }
         }
@@ -29,6 +29,7 @@ struct AClocks : View {
 struct ContentView: View {
     @State var time = Date()
     @State private var clockOrder = true
+    @State private var hex = true
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
     var gesture: some Gesture {
@@ -41,7 +42,8 @@ struct ContentView: View {
         .onEnded { drag in
             let w = drag.translation.width
             if abs(w) > 100 {
-                self.clockOrder = !self.clockOrder
+                self.hex = !self.hex
+//                self.clockOrder = !self.clockOrder
             }
         }
     }
@@ -49,7 +51,7 @@ struct ContentView: View {
         
         VStack(spacing:3) {
             VStack(spacing:4) {
-                AClocks(timeParts: Date.timeParts(decimal: true))
+                AClocks(timeParts: Date.timeParts(decimal: true, hex: self.hex))
             }
             Divider()
             VStack(spacing:4) {
@@ -77,6 +79,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            ContentView()
+        }
     }
 }

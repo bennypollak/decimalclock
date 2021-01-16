@@ -44,17 +44,14 @@ struct BinaryClock: View {
 
     func binParts(number: Double?) -> [[Int]] {
         let int: Int = Int(number!)
-
+        let mode = timeParts.hex ? 16 : 10
         let orders: [Int] = [
-            int / 10,   //high order
-            int % 10    //low order
+            int / mode,   //high order
+            int % mode    //low order
         ]
-
         return orders.map {(order: Int) in
-            pad(string: String(order, radix: 2), toSize:
-4).reversed().map {Int(String($0))!}
+            pad(string: String(order, radix: 2), toSize:4).reversed().map {Int(String($0))!}
         }
-
     }
 
     var body: some View {
@@ -71,7 +68,7 @@ struct ContentView_PreviewsBinaryClock: PreviewProvider {
     static var previews: some View {
         GeometryReader{g in
             VStack {
-                BinaryClock(timeParts: Date.timeParts(decimal: true)).frame(width:150, height:150)
+                BinaryClock(timeParts: Date.timeParts(decimal: true, hex: true)).frame(width:150, height:150)
                 Text("\( Date.timeParts(decimal: true).string)")
                 BinaryClock(timeParts: Date.timeParts(decimal: false)).frame(width:150, height:150)
                 Text("\( Date.timeParts(decimal: false).string)")
