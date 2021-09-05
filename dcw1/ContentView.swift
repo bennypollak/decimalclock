@@ -18,8 +18,8 @@ struct AClocks : View {
                 Text("\(timeParts.stringAP)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
             }
             VStack(spacing:2) {
-                Clock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex))
-                BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex))
+                Clock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse))
+                BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse))
                     .frame(width:100, height:100)
             }
         }
@@ -30,6 +30,7 @@ struct ContentView: View {
     @State var time = Date()
     @State private var clockOrder = true
     @State private var hex = true
+    @State private var reverse = false
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
     var gesture: some Gesture {
@@ -41,9 +42,15 @@ struct ContentView: View {
         }
         .onEnded { drag in
             let w = drag.translation.width
-            if abs(w) > 100 {
-                self.hex = !self.hex
-//                self.clockOrder = !self.clockOrder
+            let h = drag.translation.height
+            if abs(h) > 100 {
+//                self.hex = !self.hex
+                self.clockOrder = !self.clockOrder
+            }
+            if w > 100 {
+                self.reverse = false
+            } else if w < -100 {
+                self.reverse = true
             }
         }
     }
@@ -51,11 +58,11 @@ struct ContentView: View {
         
         VStack(spacing:3) {
             VStack(spacing:4) {
-                AClocks(timeParts: Date.timeParts(decimal: true, hex: self.hex))
+                AClocks(timeParts: Date.timeParts(decimal: true, hex: self.hex, reverse: self.reverse))
             }
             Divider()
             VStack(spacing:4) {
-                AClocks(timeParts: Date.timeParts(decimal: false))
+                AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
             }
             
             Divider()
@@ -66,6 +73,10 @@ struct ContentView: View {
             Spacer()
             
         }.gesture(self.gesture)
+        .onTapGesture(count: 2) {
+            self.hex = !self.hex
+        }
+
         .onReceive(timer) { input in
 //            let formatter = DateFormatter()
 //            formatter.dateFormat = "HH:mm:ss"
