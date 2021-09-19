@@ -40,6 +40,8 @@ struct ContentView: View {
             Text("\(time)").font(Font.body.monospacedDigit()).frame(width: 0, height: 0, alignment: .top)
             AWClocks(timeParts: Date.timeParts(decimal: true, hex: self.hex, reverse: self.reverse))
             AWClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
+            Spacer()
+            StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse)).frame(width:80, height:20)
         }.onReceive(timer) { input in
             self.time = Date.timeParts(decimal: true, hex: true, reverse: self.reverse).string
         }.onTapGesture(count: 2) {

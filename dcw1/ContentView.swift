@@ -64,10 +64,13 @@ struct ContentView: View {
             VStack(spacing:4) {
                 AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
             }
+//            VStack(spacing:4) {
+//            }
             
             Divider()
-            VStack(spacing:4) {
-                Text("Milliseconds").font(.title)
+           VStack(spacing:2) {
+            StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse)).frame(width:240, height:60)
+//                Text("Milliseconds").font(.title)
                 Text("\(time.millisecondsToday)").font(Font.body.monospacedDigit())
             }
             Spacer()

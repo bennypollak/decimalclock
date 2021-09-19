@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B90B24AFBE9900A41469 /* DecimalTime.swift */; };
 		B206B90E24B0D54C00A41469 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B90D24B0D54C00A41469 /* Clock.swift */; };
+		B2403C8C26F78D6300C68B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */; };
+		B2403C8D26F78D6500C68B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */; };
 		B2807A8024BB843D009F69AD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2807A7E24BB843D009F69AD /* Interface.storyboard */; };
 		B2807A8224BB843F009F69AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2807A8124BB843F009F69AD /* Assets.xcassets */; };
 		B2807A8924BB843F009F69AD /* ww Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B2807A8824BB843F009F69AD /* ww Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -27,6 +29,8 @@
 		B285E2AB24A8E99B00BCC6E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285E2A324A8E99B00BCC6E8 /* AppDelegate.swift */; };
 		B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285E2A424A8E99B00BCC6E8 /* ContentView.swift */; };
 		B285E2B624A8EF9300BCC6E8 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */; };
+		B28809E626F6C6260067EA53 /* StickClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28809E526F6C6260067EA53 /* StickClock.swift */; };
+		B28809E726F6C6260067EA53 /* StickClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28809E526F6C6260067EA53 /* StickClock.swift */; };
 		B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */; };
 		B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */; };
 		B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5E2249E83B900DDE47A /* dcw1.xcdatamodeld */; };
@@ -123,6 +127,7 @@
 		B285E2A424A8E99B00BCC6E8 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B285E2A524A8E99B00BCC6E8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		B28809E526F6C6260067EA53 /* StickClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickClock.swift; sourceTree = "<group>"; };
 		B2CCD5DB249E83B900DDE47A /* Multi clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +224,7 @@
 				B285E2A524A8E99B00BCC6E8 /* Info.plist */,
 				B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */,
 				B2E7BCD324B24317000AB46D /* BinaryClock.swift */,
+				B28809E526F6C6260067EA53 /* StickClock.swift */,
 				B206B90B24AFBE9900A41469 /* DecimalTime.swift */,
 				B206B90D24B0D54C00A41469 /* Clock.swift */,
 			);
@@ -403,6 +409,7 @@
 				TargetAttributes = {
 					B2807A7B24BB843D009F69AD = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1250;
 					};
 					B2807A8724BB843F009F69AD = {
 						CreatedOnToolsVersion = 11.5;
@@ -448,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2807A8224BB843F009F69AD /* Assets.xcassets in Resources */,
+				B2403C8D26F78D6500C68B3D /* Assets.xcassets in Resources */,
 				B2807A8024BB843D009F69AD /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +466,7 @@
 			files = (
 				B2807A9B24BB8440009F69AD /* Preview Assets.xcassets in Resources */,
 				B2D7779A24BB9FBD000E48E8 /* Assets.xcassets in Resources */,
+				B2403C8C26F78D6300C68B3D /* Assets.xcassets in Resources */,
 				B2807A9824BB8440009F69AD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +510,7 @@
 				B2807A8E24BB843F009F69AD /* ContentView.swift in Sources */,
 				B2807A9424BB843F009F69AD /* NotificationController.swift in Sources */,
 				B2807A9224BB843F009F69AD /* ExtensionDelegate.swift in Sources */,
+				B28809E726F6C6260067EA53 /* StickClock.swift in Sources */,
 				B2D03F6824BB8652002C4D75 /* DecimalTime.swift in Sources */,
 				B2807A9624BB843F009F69AD /* NotificationView.swift in Sources */,
 			);
@@ -511,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B285E2AB24A8E99B00BCC6E8 /* AppDelegate.swift in Sources */,
+				B28809E626F6C6260067EA53 /* StickClock.swift in Sources */,
 				B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */,
 				B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */,
 				B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */,
@@ -598,7 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"ww Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
@@ -624,7 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"ww Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
@@ -650,16 +661,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				IBSC_MODULE = ww_Extension;
 				INFOPLIST_FILE = ww/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alben.multiclock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.2;
@@ -671,11 +689,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				IBSC_MODULE = ww_Extension;
 				INFOPLIST_FILE = ww/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alben.multiclock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -806,7 +830,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"dcw1/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
@@ -828,7 +852,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"dcw1/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
