@@ -64,12 +64,10 @@ struct ContentView: View {
             VStack(spacing:4) {
                 AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
             }
-//            VStack(spacing:4) {
-//            }
             
             Divider()
            VStack(spacing:2) {
-            StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse)).frame(width:240, height:60)
+            StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
 //                Text("Milliseconds").font(.title)
                 Text("\(time.millisecondsToday)").font(Font.body.monospacedDigit())
             }
@@ -81,9 +79,6 @@ struct ContentView: View {
         }
 
         .onReceive(timer) { input in
-//            let formatter = DateFormatter()
-//            formatter.dateFormat = "HH:mm:ss"
-//            self.regularTime = formatter.string(from: Date())
             self.time = Date()
         }
         .colorScheme(self.clockOrder ? .dark : .light)
