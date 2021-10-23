@@ -40,9 +40,13 @@
 		B2CCD5EE249E83BC00DDE47A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CCD5EC249E83BC00DDE47A /* LaunchScreen.storyboard */; };
 		B2CCD5F9249E83BC00DDE47A /* dcw1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5F8249E83BC00DDE47A /* dcw1Tests.swift */; };
 		B2CCD604249E83BC00DDE47A /* dcw1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD603249E83BC00DDE47A /* dcw1UITests.swift */; };
+		B2CCE44527244273002524E4 /* RomanClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCE44427244273002524E4 /* RomanClock.swift */; };
+		B2CCE44627244273002524E4 /* RomanClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCE44427244273002524E4 /* RomanClock.swift */; };
 		B2D03F6824BB8652002C4D75 /* DecimalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206B90B24AFBE9900A41469 /* DecimalTime.swift */; };
 		B2D03F6924BB8B14002C4D75 /* BinaryClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BCD324B24317000AB46D /* BinaryClock.swift */; };
 		B2D7779A24BB9FBD000E48E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2807A8124BB843F009F69AD /* Assets.xcassets */; };
+		B2D8068627122D15001851C6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8068527122D15001851C6 /* LocationManager.swift */; };
+		B2D8068827122D9B001851C6 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8068727122D9B001851C6 /* LocationView.swift */; };
 		B2E7BCD424B24317000AB46D /* BinaryClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BCD324B24317000AB46D /* BinaryClock.swift */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +147,9 @@
 		B2CCD5FF249E83BC00DDE47A /* dcw1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dcw1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CCD603249E83BC00DDE47A /* dcw1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dcw1UITests.swift; sourceTree = "<group>"; };
 		B2CCD605249E83BC00DDE47A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2CCE44427244273002524E4 /* RomanClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanClock.swift; sourceTree = "<group>"; };
+		B2D8068527122D15001851C6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B2D8068727122D9B001851C6 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		B2E7BCD324B24317000AB46D /* BinaryClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +234,9 @@
 				B28809E526F6C6260067EA53 /* StickClock.swift */,
 				B206B90B24AFBE9900A41469 /* DecimalTime.swift */,
 				B206B90D24B0D54C00A41469 /* Clock.swift */,
+				B2D8068527122D15001851C6 /* LocationManager.swift */,
+				B2D8068727122D9B001851C6 /* LocationView.swift */,
+				B2CCE44427244273002524E4 /* RomanClock.swift */,
 			);
 			name = dcw1;
 			sourceTree = "<group>";
@@ -512,6 +522,7 @@
 				B2807A9224BB843F009F69AD /* ExtensionDelegate.swift in Sources */,
 				B28809E726F6C6260067EA53 /* StickClock.swift in Sources */,
 				B2D03F6824BB8652002C4D75 /* DecimalTime.swift in Sources */,
+				B2CCE44627244273002524E4 /* RomanClock.swift in Sources */,
 				B2807A9624BB843F009F69AD /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B285E2AB24A8E99B00BCC6E8 /* AppDelegate.swift in Sources */,
+				B2CCE44527244273002524E4 /* RomanClock.swift in Sources */,
 				B28809E626F6C6260067EA53 /* StickClock.swift in Sources */,
 				B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */,
 				B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */,
@@ -531,7 +543,9 @@
 				B2CCD5E6249E83B900DDE47A /* ContentView.swift in Sources */,
 				B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */,
 				B2E7BCD424B24317000AB46D /* BinaryClock.swift in Sources */,
+				B2D8068827122D9B001851C6 /* LocationView.swift in Sources */,
 				B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */,
+				B2D8068627122D15001851C6 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,7 +623,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"ww Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
@@ -635,7 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"ww Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
@@ -663,7 +677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				IBSC_MODULE = ww_Extension;
 				INFOPLIST_FILE = ww/Info.plist;
@@ -691,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				IBSC_MODULE = ww_Extension;
 				INFOPLIST_FILE = ww/Info.plist;
@@ -830,7 +844,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"dcw1/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;
@@ -852,7 +866,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"dcw1/Preview Content\"";
 				DEVELOPMENT_TEAM = 388X7HA3JM;
 				ENABLE_PREVIEWS = YES;

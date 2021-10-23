@@ -64,12 +64,14 @@ struct ContentView: View {
             VStack(spacing:4) {
                 AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
             }
-            
+
             Divider()
-           VStack(spacing:2) {
-            StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
+           VStack(spacing:1) {
+               RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:30)
 //                Text("Milliseconds").font(.title)
-                Text("\(time.millisecondsToday)").font(Font.body.monospacedDigit())
+               StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
+                Text("\(time.millisecondsToday) milliseconds").font(Font.body.monospacedDigit())
+//            LocationView()
             }
             Spacer()
             
@@ -89,7 +91,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
             ContentView()
         }
     }
