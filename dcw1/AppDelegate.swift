@@ -8,14 +8,19 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate
+//,CLLocationManagerDelegate
+{
+//    var locationManager:CLLocationManager!
+//    var currentLocation:CLLocation?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        setupLocationManager()
         return true
     }
 
@@ -78,5 +83,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // MARK: - Core Location support
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//
+//        if currentLocation == nil {
+//            currentLocation = locations.last
+//            locationManager?.stopMonitoringSignificantLocationChanges()
+//            let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
+//
+//            print("locations = \(locationValue)")
+//
+//            locationManager?.stopUpdatingLocation()
+//        }
+//    }
+//
+//    func setupLocationManager(){
+//            locationManager = CLLocationManager()
+//            locationManager?.delegate = self
+//            self.locationManager?.requestAlwaysAuthorization()
+//            locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            locationManager?.startUpdatingLocation()
+//
+//        }
+//  // Below Mehtod will print error if not able to update location.
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print("Error")
+//    }
+    
 }
 

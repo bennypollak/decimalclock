@@ -19,7 +19,7 @@ struct RomanView: View {
                   ]
     var body: some View {
         VStack(spacing:0) {
-            Text("\(values[value].padding(toLength: 7, withPad: " ", startingAt: 0))").font(Font.custom("Courier", size: 18))
+            Text("\(values[value].padding(toLength: 7, withPad: " ", startingAt: 0))").font(Font.custom("Courier", size: 17))
         }
     }
 }
