@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  dcw1
+
+  Created by Benny Pollak on 10/31/21.
+  Copyright © 2021 Alben Software. All rights reserved.
+*/
+"Standard time"="Norme Hora";
+"Hex time"="Heure hexadécimale";
+"Decimal time"="Heure décimale";
+"Milliseconds" = "Millisecondes";

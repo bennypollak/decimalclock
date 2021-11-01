@@ -11,9 +11,10 @@ import SwiftUI
 struct AClocks : View {
     var timeParts: TimeParts
     var body: some View {
-        VStack(spacing:4) {
-            Text("\(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Legacy") time").font(.title)
+        VStack(spacing:2) {
             HStack {
+//                Text("\(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Standard") time")
+                Text(timeParts.hex ? "Hex time" : timeParts.decimal ? "Decimal time" : "Standard time").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.string)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.stringAP)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
             }
@@ -56,12 +57,13 @@ struct ContentView: View {
     }
     var body: some View {
         
-        VStack(spacing:3) {
-            VStack(spacing:4) {
+        VStack(spacing:1) {
+            VStack(spacing:2) {
+                Text("")
                 AClocks(timeParts: Date.timeParts(decimal: true, hex: self.hex, reverse: self.reverse))
-            }
-            Divider()
-            VStack(spacing:4) {
+//            }
+//            Divider()
+//            VStack(spacing:1) {
                 AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
             }
 
@@ -70,7 +72,10 @@ struct ContentView: View {
                SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:60)
                RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:30)
                StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
-                Text("\(time.millisecondsToday) milliseconds").font(Font.body.monospacedDigit())
+               HStack {
+                   Text("\(time.millisecondsToday) ").font(Font.body.monospacedDigit())
+                   Text("Milliseconds").font(Font.body.monospacedDigit())
+               }
 //            LocationView()
             }
             Spacer()
