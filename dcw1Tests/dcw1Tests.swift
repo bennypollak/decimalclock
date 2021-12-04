@@ -6,10 +6,10 @@
 //  Copyright © 2020 Alben Software. All rights reserved.
 //
 
-//import XCTest
+import XCTest
 //@testable import dcw1
-//
-//class dcw1Tests: XCTestCase {
+
+class dcw1Tests: XCTestCase {
 //
 //    override func setUpWithError() throws {
 //        // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,4 +31,4 @@
 //        }
 //    }
 //
-//}
+}
