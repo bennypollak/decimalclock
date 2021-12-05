@@ -46,7 +46,7 @@ struct ContentView: View {
             self.time = Date.timeParts(decimal: true, hex: true, reverse: self.reverse).string
         }.onTapGesture(count: 2) {
             self.hex = !self.hex
-        }.gesture(self.gesture)
+        }.gesture(self.gesture).environment(\.layoutDirection, .leftToRight)
         
     }
 }
