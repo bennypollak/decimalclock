@@ -30,7 +30,7 @@ struct AClocks : View {
 struct ContentView: View {
     @State var time = Date()
     @State private var clockOrder = true
-    @State private var hex = true
+    @State private var hex = false
     @State private var reverse = false
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
