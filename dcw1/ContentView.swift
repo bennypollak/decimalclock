@@ -30,7 +30,7 @@ struct AClocks : View {
 struct ContentView: View {
     @State var time = Date()
     @State private var clockOrder = true
-    @State private var hex = false
+    @State private var hex = true
     @State private var reverse = false
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
@@ -72,10 +72,13 @@ struct ContentView: View {
                SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:60)
                RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:30)
                StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
-               HStack {
-                   Text("\(time.millisecondsToday) ").font(Font.body.monospacedDigit())
-                   Text("Milliseconds").font(Font.body.monospacedDigit())
-               }
+               ProgressView(value: time.millisecondsToday/(24*60*60*1000)){
+                   HStack {
+                       Text("\(String(format: "%.2f%%  - ", time.millisecondsToday/(24*60*60*1000) * 100))").monospacedDigit()
+                       Text("\(time.millisecondsToday) ").font(Font.body.monospacedDigit())
+                       Text("Milliseconds").font(Font.body.monospacedDigit())
+                   }
+               }.tint(.orange).padding()
 //            LocationView()
             }
             Spacer()
