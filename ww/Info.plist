@@ -29,5 +29,9 @@
 	<string>com.alben.multiclock</string>
 	<key>WKWatchKitApp</key>
 	<true/>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>66 1.png</string>
+	</array>
 </dict>
 </plist>

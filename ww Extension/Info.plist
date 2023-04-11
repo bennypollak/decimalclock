@@ -32,5 +32,9 @@
 	</dict>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>66 1.png</string>
+	</array>
 </dict>
 </plist>
