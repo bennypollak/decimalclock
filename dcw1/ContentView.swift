@@ -12,9 +12,9 @@ struct AClocks : View {
     var timeParts: TimeParts
     var body: some View {
         VStack(spacing:2) {
+            Text(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Standard (legacy)")
             HStack {
-//                Text("\(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Standard") time")
-                Text(timeParts.hex ? "Hex time" : timeParts.decimal ? "Decimal time" : "Standard time").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
+//                Text(timeParts.hex ? "" : timeParts.decimal ? "" : "Standard time").font(.system(size: 12, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.string)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.stringAP)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
             }
@@ -56,41 +56,48 @@ struct ContentView: View {
         }
     }
     var body: some View {
-        
+         
         VStack(spacing:1) {
+            AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
+            Spacer()
             VStack(spacing:2) {
-                Text("")
-                AClocks(timeParts: Date.timeParts(decimal: true, hex: self.hex, reverse: self.reverse))
+                HStack {
+//                    VStack {
+                        AClocks(timeParts: Date.timeParts(decimal: true, hex: false, reverse: self.reverse))
+//                        Text("Decimal")
+//                    }
+//                    VStack {
+                        AClocks(timeParts: Date.timeParts(decimal: true, hex: true, reverse: self.reverse))
+//                        Text("Hex")
+//                    }
+                }
 //            }
 //            Divider()
 //            VStack(spacing:1) {
-                AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
             }
 
-            Divider()
-           VStack(spacing:1) {
-               SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:60)
-               RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:30)
-               StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
-               ProgressView(value: time.millisecondsToday/(24*60*60*1000)){
-                   HStack {
-                       Text("\(String(format: "%.2f%%  - ", time.millisecondsToday/(24*60*60*1000) * 100))").monospacedDigit()
-                       Text("\(time.millisecondsToday) ").font(Font.body.monospacedDigit())
-                       Text("Milliseconds").font(Font.body.monospacedDigit())
-                   }
-               }.tint(.orange).padding()
-//            LocationView()
+//            Divider()
+            VStack(spacing:1) {
+                VStack(spacing:1) {
+                    SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:60)
+                    RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:30)
+                    StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
+                }
+               ProgressView(value: time.millisecondsToday/(24*60*60*1000)).tint(.orange).padding()
+               HStack {
+//                   Text("\(String(time.millisecondsToday/(24*60*60*1000) * 100))").monospacedDigit()
+//                   Text("\(String(format: "%.2f%%  - ", time.millisecondsToday/(24*60*60*1000) * 100))").monospacedDigit()
+                   Text("\(String(format: "%.2f%%  - ", time.millisecondsToday/864000)) \(time.millisecondsToday) ").font(Font.body.monospacedDigit())
+                   Text("Milliseconds").font(Font.body.monospacedDigit())
+               }
+           
             }
-            Spacer()
+//            Spacer()
             
-        }.gesture(self.gesture)
-        .onTapGesture(count: 2) {
-            self.hex = !self.hex
         }
-
-        .onReceive(timer) { input in
-            self.time = Date()
-        }
+        .gesture(self.gesture)
+        .onTapGesture(count: 2) { self.hex = !self.hex }
+        .onReceive(timer) { input in self.time = Date() }
         .colorScheme(self.clockOrder ? .dark : .light)
         .background(self.clockOrder ? Color.black : Color.white)
     }
