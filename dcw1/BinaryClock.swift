@@ -38,6 +38,7 @@ extension String {
 
 struct BinaryClock: View {
     var timeParts: TimeParts
+    var ampm = true
     func pad(string : String, toSize: Int) -> String {
          return String(repeating: "0", count: toSize - string.count) + string
      }
@@ -56,7 +57,7 @@ struct BinaryClock: View {
 
     var body: some View {
         HStack(spacing:3) {
-            ForEach([timeParts.hours, timeParts.mins, timeParts.secs], id: \.self) { timePart in
+            ForEach([self.ampm ? timeParts.hours.truncatingRemainder(dividingBy: timeParts.hex ? 128.0 : timeParts.decimal ? 50.0 : 12.0) : timeParts.hours, timeParts.mins, timeParts.secs], id: \.self) { timePart in
                 ByteView(parts:binParts(number: timePart))
             }
         }

@@ -10,17 +10,17 @@ import SwiftUI
 
 struct AClocks : View {
     var timeParts: TimeParts
+    var ampm = true
     var body: some View {
         VStack(spacing:2) {
             Text(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Standard (legacy)")
             HStack {
-//                Text(timeParts.hex ? "" : timeParts.decimal ? "" : "Standard time").font(.system(size: 12, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.string)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.stringAP)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
             }
             VStack(spacing:2) {
                 Clock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse))
-                BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse))
+                BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse), ampm: self.ampm)
                     .frame(width:100, height:100)
             }
         }
@@ -32,6 +32,7 @@ struct ContentView: View {
     @State private var clockOrder = true
     @State private var hex = true
     @State private var reverse = false
+    @State private var ampm = true
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
     var gesture: some Gesture {
@@ -58,25 +59,14 @@ struct ContentView: View {
     var body: some View {
          
         VStack(spacing:1) {
-            AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse))
+            AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), ampm: self.ampm)
             Spacer()
             VStack(spacing:2) {
                 HStack {
-//                    VStack {
-                        AClocks(timeParts: Date.timeParts(decimal: true, hex: false, reverse: self.reverse))
-//                        Text("Decimal")
-//                    }
-//                    VStack {
-                        AClocks(timeParts: Date.timeParts(decimal: true, hex: true, reverse: self.reverse))
-//                        Text("Hex")
-//                    }
+                        AClocks(timeParts: Date.timeParts(decimal: true, hex: false, reverse: self.reverse), ampm: self.ampm)
+                        AClocks(timeParts: Date.timeParts(decimal: true, hex: true, reverse: self.reverse), ampm: self.ampm)
                 }
-//            }
-//            Divider()
-//            VStack(spacing:1) {
             }
-
-//            Divider()
             VStack(spacing:1) {
                 VStack(spacing:1) {
                     SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:60)
@@ -85,18 +75,14 @@ struct ContentView: View {
                 }
                ProgressView(value: time.millisecondsToday/(24*60*60*1000)).tint(.orange).padding()
                HStack {
-//                   Text("\(String(time.millisecondsToday/(24*60*60*1000) * 100))").monospacedDigit()
-//                   Text("\(String(format: "%.2f%%  - ", time.millisecondsToday/(24*60*60*1000) * 100))").monospacedDigit()
                    Text("\(String(format: "%.2f%%  - ", time.millisecondsToday/864000)) \(time.millisecondsToday) ").font(Font.body.monospacedDigit())
                    Text("Milliseconds").font(Font.body.monospacedDigit())
                }
            
             }
-//            Spacer()
-            
         }
         .gesture(self.gesture)
-        .onTapGesture(count: 2) { self.hex = !self.hex }
+        .onTapGesture(count: 2) { self.ampm = !self.ampm }
         .onReceive(timer) { input in self.time = Date() }
         .colorScheme(self.clockOrder ? .dark : .light)
         .background(self.clockOrder ? Color.black : Color.white)
