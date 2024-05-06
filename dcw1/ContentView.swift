@@ -12,16 +12,16 @@ struct AClocks : View {
     var timeParts: TimeParts
     var ampm = true
     var body: some View {
-        VStack(spacing:2) {
+        VStack(spacing:0) {
             Text(timeParts.hex ? "Hex" : timeParts.decimal ? "Decimal" : "Standard (legacy)")
             HStack {
                 Text("\(timeParts.string)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
                 Text("\(timeParts.stringAP)").font(.system(size: 14, design: .monospaced)).multilineTextAlignment(.leading)
             }
-            VStack(spacing:2) {
+            VStack(spacing:0) {
                 Clock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse))
                 BinaryClock(timeParts: Date.timeParts(decimal: timeParts.decimal, hex: timeParts.hex, reverse: timeParts.reverse), ampm: self.ampm)
-                    .frame(width:100, height:100)
+                    .frame(width:80, height:70)
             }
         }
     }
@@ -33,6 +33,8 @@ struct ContentView: View {
     @State private var hex = true
     @State private var reverse = false
     @State private var ampm = true
+    var i = 0
+
     let timer = Timer.publish(every: 0.001, on: .main, in: .common).autoconnect()
     
     var gesture: some Gesture {
@@ -58,20 +60,26 @@ struct ContentView: View {
     }
     var body: some View {
          
-        VStack(spacing:1) {
+        VStack(spacing:0) {
             AClocks(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), ampm: self.ampm)
             Spacer()
-            VStack(spacing:2) {
+            VStack(spacing:0) {
                 HStack {
                         AClocks(timeParts: Date.timeParts(decimal: true, hex: false, reverse: self.reverse), ampm: self.ampm)
                         AClocks(timeParts: Date.timeParts(decimal: true, hex: true, reverse: self.reverse), ampm: self.ampm)
                 }
             }
-            VStack(spacing:1) {
-                VStack(spacing:1) {
-                    SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:60)
-                    RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:30)
-                    StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:60)
+            VStack(spacing:0) {
+                VStack(spacing:0) {
+                    SpelledClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:20)
+//                    Rectangle().frame(height: 1)
+                    MorseClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:30)
+//                    Rectangle().frame(height: 1)
+                    BrailleClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:400, height:30)
+//                    Rectangle().frame(height: 1)
+                    RomanClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:20)
+//                    Rectangle().frame(height: 1)
+                    StickClock(timeParts: Date.timeParts(decimal: false, reverse: self.reverse), invert: !self.clockOrder).frame(width:240, height:40)
                 }
                ProgressView(value: time.millisecondsToday/(24*60*60*1000)).tint(.orange).padding()
                HStack {

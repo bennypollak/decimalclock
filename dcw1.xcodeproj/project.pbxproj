@@ -46,6 +46,8 @@
 		B2D8068627122D15001851C6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8068527122D15001851C6 /* LocationManager.swift */; };
 		B2D8068827122D9B001851C6 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8068727122D9B001851C6 /* LocationView.swift */; };
 		B2E7BCD424B24317000AB46D /* BinaryClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BCD324B24317000AB46D /* BinaryClock.swift */; };
+		B2F902FF2BE6924C008CF7C8 /* MorseClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F902FE2BE6924C008CF7C8 /* MorseClock.swift */; };
+		B2F903012BE6A215008CF7C8 /* BrailleClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F903002BE6A215008CF7C8 /* BrailleClock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,8 @@
 		B2D8068527122D15001851C6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B2D8068727122D9B001851C6 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		B2E7BCD324B24317000AB46D /* BinaryClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryClock.swift; sourceTree = "<group>"; };
+		B2F902FE2BE6924C008CF7C8 /* MorseClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorseClock.swift; sourceTree = "<group>"; };
+		B2F903002BE6A215008CF7C8 /* BrailleClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrailleClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 				B2CCE44427244273002524E4 /* RomanClock.swift */,
 				B29A31042725D1AA00E0DFAF /* SpelledView.swift */,
 				B21AA88B272F18210049999F /* Localizable.strings */,
+				B2F902FE2BE6924C008CF7C8 /* MorseClock.swift */,
+				B2F903002BE6A215008CF7C8 /* BrailleClock.swift */,
 			);
 			name = dcw1;
 			sourceTree = "<group>";
@@ -502,12 +508,14 @@
 				B29A31052725D1AA00E0DFAF /* SpelledView.swift in Sources */,
 				B285E2AB24A8E99B00BCC6E8 /* AppDelegate.swift in Sources */,
 				B2CCE44527244273002524E4 /* RomanClock.swift in Sources */,
+				B2F902FF2BE6924C008CF7C8 /* MorseClock.swift in Sources */,
 				B28809E626F6C6260067EA53 /* StickClock.swift in Sources */,
 				B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */,
 				B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */,
 				B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */,
 				B206B90E24B0D54C00A41469 /* Clock.swift in Sources */,
 				B285E2B624A8EF9300BCC6E8 /* Stopwatch.swift in Sources */,
+				B2F903012BE6A215008CF7C8 /* BrailleClock.swift in Sources */,
 				B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */,
 				B2CCD5E6249E83B900DDE47A /* ContentView.swift in Sources */,
 				B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */,
