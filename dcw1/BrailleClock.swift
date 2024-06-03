@@ -15,8 +15,9 @@ struct BrailleView: View {
     var invert: Bool = false
     func numberToBraille(value:Int) -> String {
         let brailleMap = ["⠴","⠂","⠆","⠒","⠲","⠢","⠖","⠶","⠦","⠔"]
-        let digits = String(value).map { brailleMap[Int(String($0))!] }
-        return digits.joined(separator: "  ")
+        var digits = String(value).map { brailleMap[Int(String($0))!] }
+        if digits.count == 1 { digits.insert(brailleMap[0], at: 0) }
+       return digits.joined(separator: "  ")
     }
     var body: some View {
         VStack(spacing:0) {
