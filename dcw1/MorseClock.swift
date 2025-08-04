@@ -13,19 +13,11 @@ import UIKit
 struct MorseView: View {
     var value = 0
     var invert: Bool = false
-    func numberToBraille(value:Int) -> String {
-        let brailleMap = ["⠴","⠂","⠆","⠒","⠲","⠢","⠖","⠶","⠦","⠔"]
-        let digits = String(value).map { brailleMap[Int(String($0))!] }
-        return digits.joined(separator: "  ")
-    }
     func numberToMorse(value:Int) -> String {
         let morseMap = ["-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."]
-        let digits = String(value).map { morseMap[Int(String($0))!] }
+        var digits = String(value).map { morseMap[Int(String($0))!] }
+        if digits.count == 1 { digits.insert(morseMap[0], at: 0) }
         return digits.joined(separator: "  ")
-    }
-    func spelled(value:Int) -> String {
-        let morse = numberToMorse(value: value)
-        return morse
     }
     var body: some View {
         VStack(spacing:0) {
