@@ -30,6 +30,8 @@
 		B28809E726F6C6260067EA53 /* StickClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28809E526F6C6260067EA53 /* StickClock.swift */; };
 		B29A31052725D1AA00E0DFAF /* SpelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29A31042725D1AA00E0DFAF /* SpelledView.swift */; };
 		B29A31062725D1AA00E0DFAF /* SpelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29A31042725D1AA00E0DFAF /* SpelledView.swift */; };
+		B2C4E6582E3C5A6D00E386DD /* FullScreenClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4E6572E3C5A6100E386DD /* FullScreenClockView.swift */; };
+		B2C4E65A2E3C5AA700E386DD /* ClockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C4E6592E3C5AA200E386DD /* ClockType.swift */; };
 		B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */; };
 		B2CCD5E1249E83B900DDE47A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */; };
 		B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2CCD5E2249E83B900DDE47A /* dcw1.xcdatamodeld */; };
@@ -127,6 +129,8 @@
 		B285E2B524A8EF9300BCC6E8 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		B28809E526F6C6260067EA53 /* StickClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickClock.swift; sourceTree = "<group>"; };
 		B29A31042725D1AA00E0DFAF /* SpelledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpelledView.swift; sourceTree = "<group>"; };
+		B2C4E6572E3C5A6100E386DD /* FullScreenClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenClockView.swift; sourceTree = "<group>"; };
+		B2C4E6592E3C5AA200E386DD /* ClockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockType.swift; sourceTree = "<group>"; };
 		B2CCD5DB249E83B900DDE47A /* Multi clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2CCD5DE249E83B900DDE47A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2CCD5E0249E83B900DDE47A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		B285E29B24A8E99B00BCC6E8 /* dcw1 */ = {
 			isa = PBXGroup;
 			children = (
+				B2C4E6592E3C5AA200E386DD /* ClockType.swift */,
+				B2C4E6572E3C5A6100E386DD /* FullScreenClockView.swift */,
 				B285E29C24A8E99B00BCC6E8 /* dcw1.xcdatamodeld */,
 				B285E29E24A8E99B00BCC6E8 /* Assets.xcassets */,
 				B285E29F24A8E99B00BCC6E8 /* Preview Content */,
@@ -513,10 +519,12 @@
 				B2CCD5DF249E83B900DDE47A /* AppDelegate.swift in Sources */,
 				B285E2AC24A8E99B00BCC6E8 /* ContentView.swift in Sources */,
 				B2CCD5E4249E83B900DDE47A /* dcw1.xcdatamodeld in Sources */,
+				B2C4E65A2E3C5AA700E386DD /* ClockType.swift in Sources */,
 				B206B90E24B0D54C00A41469 /* Clock.swift in Sources */,
 				B285E2B624A8EF9300BCC6E8 /* Stopwatch.swift in Sources */,
 				B2F903012BE6A215008CF7C8 /* BrailleClock.swift in Sources */,
 				B285E2A724A8E99B00BCC6E8 /* dcw1.xcdatamodeld in Sources */,
+				B2C4E6582E3C5A6D00E386DD /* FullScreenClockView.swift in Sources */,
 				B2CCD5E6249E83B900DDE47A /* ContentView.swift in Sources */,
 				B206B90C24AFBE9900A41469 /* DecimalTime.swift in Sources */,
 				B2E7BCD424B24317000AB46D /* BinaryClock.swift in Sources */,

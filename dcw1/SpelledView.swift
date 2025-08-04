@@ -13,15 +13,7 @@ let zformatter = NumberFormatter()
 struct SpelledView: View {
     var value = 0
     var invert: Bool = false
-    func numberToMorse(value:Int) -> String {
-        let morseMap = ["-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."]
-        // navigate through each character in the string value
-        let digits = String(value).map { morseMap[Int(String($0))!] }
-        // join the list of digits with a string in between
-        return digits.joined(separator: "  ")
-    }
     func spelled(value:Int) -> String {
-        let morse = numberToMorse(value: value)
         let formatter = NumberFormatter()
         formatter.numberStyle = .spellOut
         let regionCode = Locale.preferredLanguages[0] //Bundle.main.preferredLocalizations[0]
